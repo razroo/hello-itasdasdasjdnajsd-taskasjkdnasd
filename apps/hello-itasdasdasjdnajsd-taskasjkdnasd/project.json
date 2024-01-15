@@ -1,0 +1,88 @@
+{
+  "name": "hello-itasdasdasjdnajsd-taskasjkdnasd",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src",
+  "prefix": "hello-itasdasdasjdnajsd-taskasjkdnasd",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/hello-itasdasdasjdnajsd-taskasjkdnasd",
+        "index": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/index.html",
+        "main": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/main.ts",
+        "polyfills": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/polyfills.ts",
+        "tsConfig": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/favicon.ico",
+          "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/assets"
+        ],
+        "styles": ["apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/environments/environment.ts",
+              "with": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "hello-itasdasdasjdnajsd-taskasjkdnasd:build:production"
+        },
+        "development": {
+          "buildTarget": "hello-itasdasdasjdnajsd-taskasjkdnasd:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "hello-itasdasdasjdnajsd-taskasjkdnasd:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/hello-itasdasdasjdnajsd-taskasjkdnasd"],
+      "options": {
+        "jestConfig": "apps/hello-itasdasdasjdnajsd-taskasjkdnasd/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
